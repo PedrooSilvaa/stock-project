@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("select p from Product p where name like %name%")
+    @Query("select p from Product p where name like %:name%")
     List<Product> findAllByName(String name);
 }
