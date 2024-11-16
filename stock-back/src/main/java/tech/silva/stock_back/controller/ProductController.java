@@ -34,11 +34,23 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<?> findall(){
+    public ResponseEntity<?> findAll(){
         List<Product> products = productService.getAll();
         if (products.isEmpty()){
             return ResponseEntity.ok().body("vazio");
         }
         return ResponseEntity.ok(products);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+        productService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> upddateById(@PathVariable Long id, @RequestBody Product product){
+        productService.update(id, product);
+        return ResponseEntity.ok().build();
     }
 }

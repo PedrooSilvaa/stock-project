@@ -10,17 +10,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
-
+        
+    @Column(nullable = false)
     private int amount;
 
-    private double value;
-
-    public Product(Long id, String name, int amount, double value) {
+    public Product(Long id, String name, int amount) {
         this.id = id;
         this.name = name;
         this.amount = amount;
-        this.value = value;
     }
 
     public Product() {
@@ -50,11 +49,4 @@ public class Product {
         this.amount = amount;
     }
 
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
-    }
 }

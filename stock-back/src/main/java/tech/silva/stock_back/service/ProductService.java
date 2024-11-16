@@ -31,4 +31,16 @@ public class ProductService {
     public List<Product> getAll(){
         return productRepository.findAll();
     }
+
+    @Transactional
+    public void delete(Long id){
+        productRepository.deleteById(id);
+    }
+
+    public void update(Long id, Product newProduct) {
+        Product product = productRepository.findById(id).orElse(null);
+        product.setName(newProduct.getName());
+        product.setAmount(newProduct.getAmount());
+        productRepository.save(product);
+    }
 }
