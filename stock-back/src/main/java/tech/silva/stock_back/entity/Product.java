@@ -16,10 +16,21 @@ public class Product {
     @Column(nullable = false)
     private int amount;
 
-    public Product(Long id, String name, int amount) {
+    private String urlImage;
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    public Product(Long id, String name, int amount, String urlImage) {
         this.id = id;
         this.name = name;
         this.amount = amount;
+        this.urlImage = urlImage;
     }
 
     public Product() {
